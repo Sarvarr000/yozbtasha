@@ -1,0 +1,201 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    /* font-size: 20px; */
+}
+*::selection{
+    background-color: #f6798e;
+    color: #fff;
+    font-weight: bolder;
+    border-radius: 20px;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #17a2b8;
+}
+.wrapper{
+    width: 100%;
+    padding: 35px;
+    background: #fff;
+    /* border-radius: 100px; */
+    box-shadow: 0 0 50px 100px white;
+}
+.wrapper .input-field{
+    opacity: 0;
+}
+.wrapper .content-box{
+    padding: 0 40px;
+    border-radius: 10px;
+    /* border: 1px solid #ccc; */
+}
+.content-box .typing-text{
+    max-height: 255px;
+    overflow-y: auto;
+}
+.typing-text::-webkit-scrollbar{
+    width: 0;
+}
+.typing-text p{
+    font-size: 36px;
+    text-align: justify;
+    letter-spacing: 6px;
+    word-break: normal;
+}
+.typing-text p span{
+    position: relative;
+}
+.typing-text p span.correct{
+    color:#17a2b8;
+}
+.typing-text p span.incorrect{
+    color: #cb3439;
+    background: #ffc0cb;
+    border-radius: 4px;
+}
+/* .typing-text p span.active{
+    color: #17a2b8;
+
+} */
+.typing-text p span.active::before{
+    content: "";
+    position: absolute;
+    left: -2px;
+    top: 10px;
+    height: 0;
+    width: 4px;
+    opacity: 0;
+    border-radius: 202px;
+    background-color: #17a2b8;
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    50%{
+        opacity: 1;
+        top: 0;
+        height: 30px;
+    }
+}
+.content-box .content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 17px;
+    padding: 12px 0;
+    align-items: center;
+    /* border-top: 1px solid #ccc; */
+}
+
+.content button{
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #17a2b8;
+    transition:  1s ease;
+}
+.content button:hover{
+    border: 1px solid #17a2b8;
+    background: #fff;
+    color: #17a2b8;
+}
+.content button:active{
+    transform: scale(0.95);
+}
+.content .result-details{
+    display: flex;
+    flex-wrap:  wrap;
+    justify-content: space-between;
+    width: calc(100% - 140px);
+}
+.result-details li{
+    height: 22px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    list-style: none;
+}
+.result-details li:not(:first-child){
+    border-left: 1px solid #ccc;
+    margin-left: 30px;
+    padding-left: 22px;
+}
+.result-details li p{
+    font-size: 19px;
+}
+.result-details li span{
+    display: block;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.result-details .li b{
+    font-weight: 500;
+}
+.content.finish li p{
+    font-size: xx-large;
+    margin: 10px;
+    color: #17a2b8;
+}
+.content.finish li > span{
+    font-size: xx-large;
+    margin: 10px;
+    color: #f6798e;
+}
+.anchorgr{
+    width: 90%;
+    position: absolute;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+    background: linear-gradient(90deg, #17a2b8,#cb3439);
+    background-size: 100%;
+    background-clip: text;
+    color: transparent;
+    font-size: larger;
+    margin: 20px;
+}
+a:hover{
+    background: linear-gradient(90deg, #f6798e,#17a2b8);
+    background-clip: text;
+
+}
+@media (200px<width<768px){
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-size: 3vw;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: lighter;
+        transition: 1s ease-out;
+        /* font-size: 20px; */
+    }   
+    .anchorgr{
+        flex-direction: column;
+    }
+    a{
+        background: linear-gradient(90deg, #fff, #e60810);
+        background-clip: text;
+        text-shadow: 3px 3px 1px #e60810;
+    }
+    .content-box .content{
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
